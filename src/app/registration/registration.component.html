@@ -1,0 +1,10 @@
+<form #registration="ngForm">
+    <input #fname="ngModel" type="text" [(ngModel)]="firstname" name="firstname">
+    <div>{{firstname}}</div>
+    <div *ngIf="fname.pristine">It's Pristine</div>
+    <div *ngIf="fname.dirty">It's Dirty</div>
+    <input type="text" name="lastname">
+    <br>
+    <br>
+
+    <button (click)="fetchData()">Fetch Data</button>

@@ -1,5 +1,55 @@
-<p>Get Method</p>
-<h3>{{jsonOP | json}}</h3>
 
+<p>Get Method</p>
+<h3>Material Design Table</h3>
+<table mat-table [dataSource]="jsonOP" class="mat-elevation-z8">
+
+    <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+  
+    <!-- userid Column -->
+    <ng-container matColumnDef="userId">
+      <th mat-header-cell *matHeaderCellDef [style.background-color]="'burlywood'"> UserId </th>
+      <td mat-cell *matCellDef="let element"> {{element.userId}} </td>
+    </ng-container>
+    <!-- id Column -->
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef [style.background-color]="'burlywood'"> Id </th>
+      <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+    </ng-container>
+    <!-- title Column -->
+    <ng-container matColumnDef="title">
+      <th mat-header-cell *matHeaderCellDef [style.background-color]="'burlywood'"> Title </th>
+      <td mat-cell *matCellDef="let element"> {{element.title}} </td>
+    </ng-container>
+    <!-- body Column -->
+    <ng-container matColumnDef="body">
+      <th mat-header-cell *matHeaderCellDef [style.background-color]="'burlywood'"> Body </th>
+      <td mat-cell *matCellDef="let element"> {{element.body}} </td>
+    </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+  <br>
+  <br>
 <p>Post Method</p>
-<h3>{{jsonIP | json}}</h3>
+<h3>Bootstrap Table</h3>
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th scope="col">UserId</th>
+			<th scope="col">Id</th>
+			<th scope="col">Title</th>
+			<th scope="col">Body</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr *ngFor="let user of jsonIP">
+			<th scope="row">{{ user.userId }}</th>
+			<td>{{ user.id }}</td>
+			<td>{{ user.title }}</td>
+			<td>{{ user.body }}</td>
+		</tr>
+	</tbody>
+</table>
